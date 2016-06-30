@@ -1,0 +1,29 @@
+html
+  body
+    form(action='code/submit/', method='post')
+      fieldset
+        // Form Name
+        legend Form Name
+        // Text input
+        .form-group
+          label.col-md-4.control-label(for='type') Type
+          .col-md-4
+            input#type.form-control.input-md(name='type', type='text', placeholder='Type of File', required='')
+            span.help-block extension
+        // Textarea
+        .form-group
+          label.col-md-4.control-label(for='code') Code
+          .col-md-4
+            textarea#code.form-control(name='code')
+        // Text input
+        .form-group
+          label.col-md-4.control-label(for='user') User Name
+          .col-md-4
+            input#user.form-control.input-md(name='user', type='text', placeholder='Username', required='')
+            span.help-block help
+        // Button
+        .form-group
+          label.col-md-4.control-label(for='submit') Submit
+          .col-md-4
+            button#submit.btn.btn-warning(name='submit', type='submit') Sumit
+
