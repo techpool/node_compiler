@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	form(action='login/', method='post')
+		label(for='email') Email ID
+		input(type='email', required='true', placeholder='Email' name='email')
+
+		label(for='password') Password
+		input(type='password', required='true', placeholder='Password' name='password')
+
+		button(type='submit') Submit
