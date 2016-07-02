@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var codesSchema = mongoose.Schema({
     _user: {
-    	type: Schema.Types.ObjectId,
+    	type: mongoose.Schema.Types.ObjectId,
         ref: 'Users',
         required: true
     },
@@ -35,10 +35,4 @@ var codesSchema = mongoose.Schema({
 	}
 });
 
-// Virtual function to get the full name when 
-// name.full of the Users object is invoked
-userSchema.virtual('name.full').get(function () {
-	return this.name.first + ' ' + this.name.last;
-});
-
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('Codes', codesSchema);
