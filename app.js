@@ -1,10 +1,12 @@
 var express = require('express');
-var path = require('path');
 var favicon = require('serve-favicon');
+var path = require('path');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var user_code = require('./routes/user_code');
+var login = require('./routes/login');
+var register = require('./routes/register');
 
 var app = express();
 
@@ -20,6 +22,15 @@ Compiler = require('./lib/code_compiler');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/code', user_code);
+app.use('/login', login);
+app.use('/register', register);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 
 // Models
 Users = require('./models/users')
