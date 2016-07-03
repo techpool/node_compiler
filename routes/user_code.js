@@ -5,24 +5,40 @@ var async = require('async');
 /* GET home page. */
 router.post('/submit', function(req, res, next) {
 	var type = req.body.type;
-	var code = req.body.code;
-	var user = req.body.user;
+	var sourceCode = req.body.code;
+	var user = req.user;
 
-	async.waterfall([
-			function(callback){
-				var filename = FileWriter(type, user, code);
-				callback(null, filename);
-			},
+	// Create a Code schema object
 
-			function(filename, callback){
-				Compiler(type, filename, user);
-				callback(null);
-			}
-		], 
-		function(err) {
-			res.send("Your Code Submitted");
+	var code = new Codes({
+		_user: user._id,
+		sourceCode: sourceCode,
+		type: type
+	});
+
+	code.save(function(err, dbObj) {
+		if (err) {
+			console.log(err);
+		} else {
+			async.waterfall([
+				function(callback){
+					FileWriter(type, dbObj, sourceCode, function(filename) {
+						callback(null, filename);
+					});
+				},
+
+				function(filename, callback){
+					Executer(type, filename, dbObj);
+				},
+
+
+			], 
+			function(err) {
+				res.send("Your Code Submitted");
+			})
 		}
-	)
+	});
+
 });
 
 router.get('/', function(req, res, next){
