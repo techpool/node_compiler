@@ -25,6 +25,9 @@ var codesSchema = mongoose.Schema({
     outputStatus: {
         type: String
     },
+    message: {
+        type: String
+    },
     lastRun: {
         type: Date
     }
