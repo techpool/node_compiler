@@ -17,6 +17,7 @@ FileWriter = require('./lib/file_writer');
 FileRemover = require('./lib/file_remover');
 
 Compiler = require('./lib/code_compiler');
+Executer = require('./lib/code_executer');
 
 // Routes
 app.use('/', routes);
