@@ -1,11 +1,15 @@
 extends layout
 
 block content
-	form(action='', method='post')
-		label(for='email') Email ID
-		input(type='email', required='true', placeholder='Email' name='email')
-
-		label(for='password') Password
-		input(type='password', required='true', placeholder='Password' name='password')
-
-		input(type='submit' value='Submit')
+	main
+		div
+			form(action='', method='post')
+				label(for='email') E-mail: 
+				br
+				input(type='text', name='email', placeholder='E-mail', required='')
+				br
+				label(for='password') Password: 
+				br
+				input(type='password', name='password', placeholder='Password')
+				br
+				input.button(type='submit', value='Login')
