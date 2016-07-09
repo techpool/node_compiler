@@ -11,7 +11,7 @@ redirects = {
 // GET the login page
 router.get('/', function(req, res, next) {
 	console.log(req.flash());
-	res.render('login');
+	res.render('login', { title: 'Login' });
 });
 
 router.post('/',
