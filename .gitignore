@@ -32,3 +32,6 @@ npm-debug.log
 # C source files and output files
 *.c
 *.out
+
+# Mac Tecporary files
+.DS_Store
