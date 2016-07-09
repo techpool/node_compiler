@@ -29,9 +29,8 @@ router.post('/submit', function(req, res, next) {
 
 				function(filename, callback){
 					Executer(type, filename, dbObj);
+					callback(null);
 				},
-
-
 			], 
 			function(err) {
 				res.send("Your Code Submitted");
