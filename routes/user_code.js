@@ -4,11 +4,14 @@ var async = require('async');
 
 /* GET home page. */
 router.post('/submit', function(req, res, next) {
-	var type = req.body.type;
-	var sourceCode = req.body.code;
-	var user = req.user;
 
+	var body = req.body;
+	var type = body.filetype;
+	var sourceCode = body.code;
+	var user = req.user;
+	
 	// Create a Code schema object
+
 
 	var code = new Codes({
 		_user: user._id,
@@ -41,7 +44,7 @@ router.post('/submit', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next){
-	res.render('code_form');
+	res.render('code_form', {title: "Code"});
 })
 
 module.exports = router;
