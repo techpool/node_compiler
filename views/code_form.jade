@@ -1,23 +1,23 @@
-html
-  body
-    form(action='code/submit/', method='post')
-      fieldset
-        // Form Name
-        legend Form Name
-        // Text input
-        .form-group
-          label.col-md-4.control-label(for='type') Type
-          .col-md-4
-            input#type.form-control.input-md(name='type', type='text', placeholder='Type of File', required='')
-            span.help-block extension
-        // Textarea
-        .form-group
-          label.col-md-4.control-label(for='code') Code
-          .col-md-4
-            textarea#code.form-control(name='code')
-        // Button
-        .form-group
-          label.col-md-4.control-label(for='submit') Submit
-          .col-md-4
-            button#submit.btn.btn-warning(name='submit', type='submit') Sumit
+extends layout
+
+block content
+	#editor
+		| #include &ltstdio.h&gt
+		| void main(){
+		| printf("Hello");
+		| }
+	.submit-area
+		label(for='filetype') Language: 
+		select#filetype(name='filetype')
+			option(value='c') C
+			option(value='cpp', disabled='') C++
+			option(value='javascript') JavaScript
+			option(value='shell') Shell
+		label(for='program-name') Program Name: 
+		input(type='text', name='program-name')
+		button#run Run
+	script(src='javascripts/src-noconflict/ace.js', type='text/javascript', charset='utf-8')
+	script(src='javascripts/src-noconflict/ext-language_tools.js', type='text/javascript', charset='utf-8')
+	script(src='https://code.jquery.com/jquery-3.1.0.min.js', integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=', crossorigin='anonymous')
+	script(type='text/javascript', src='javascripts/script.js')
 

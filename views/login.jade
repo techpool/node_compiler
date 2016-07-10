@@ -2,7 +2,7 @@ extends layout
 
 block content
 	main
-		div
+		.login-form
 			form(action='', method='post')
 				label(for='email') E-mail: 
 				br
@@ -13,3 +13,4 @@ block content
 				input(type='password', name='password', placeholder='Password')
 				br
 				input.button(type='submit', value='Login')
+
