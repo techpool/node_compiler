@@ -36,7 +36,10 @@ router.post('/submit', function(req, res, next) {
 				},
 			], 
 			function(err) {
-				res.send("Your Code Submitted");
+				res.status(200);
+				res.json({
+					msg: "Code Submitted"
+				});
 			})
 		}
 	});
